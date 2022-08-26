@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <meta charset="utf-8">
+  <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>ELMAWQE3</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="style2.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&family=Raleway:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/ab8900e115.js" crossorigin="anonymous"></script>
+    <title>first page</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+
+    <link rel="stylesheet" href="style1.css" type="text/css">
+    <meta charset="utf-8">
+    <title>first page</title>
+
+    <script>
+function load(){
+
+document.getElementById('menu').innerHTML='';
+document.getElementById('menu2').innerHTML='';
+
+
+
+if(localStorage.getItem('@User'))
+document.getElementById('ln').innerHTML='<a href = "logout.html">Logout</a>'
+else
+document.getElementById('ln').innerHTML='<a href = "login.html">Log in\Register</a>'
+
+
+if(localStorage.getItem('@User')=='Omar'){
+var ad = document.createElement('li');
+ad.innerHTML='<a href = "admin.html">Admin</a>';
+document.getElementById('nb').appendChild(ad);
+}
+
+if(localStorage.getItem('@Color'))
+document.body.style.color=localStorage.getItem('@Color');
+
+if(localStorage.getItem('@bgColor'))
+document.body.style.background=localStorage.getItem('@bgColor');
+
+if(localStorage.getItem('@font'))
+document.body.style.fontFamily=localStorage.getItem('@font');
+
+for(let i = 0; i<localStorage.length;i++){
+
+if(localStorage.key(i)[0]=='@')
+continue;
+
+var el=document.createElement('option');
+el.value= localStorage.key(i);
+el.innerHTML=localStorage.key(i);
+document.getElementById('menu').appendChild(el);
+}
+
+for(let i = 0; i<localStorage.length;i++){
+
+if(localStorage.key(i)[0]=='@')
+continue;
+
+var el=document.createElement('option');
+el.value= localStorage.key(i);
+el.innerHTML=localStorage.key(i);
+document.getElementById('menu2').appendChild(el);
+}
+
+}
+
+function bgcolorchange(){
+localStorage.setItem('@bgColor',document.getElementById('bgColor').value);
+load();
+}
+
+
+function colorchange(){
+localStorage.setItem('@Color',document.getElementById('Color').value);
+load();
+}
+
+
+function fontchange(){
+localStorage.setItem('@font',document.getElementById('Font').value);
+load();
+}
+
+function delUser(){
+var user=document.getElementById('menu').value;
+if(localStorage.getItem(user)){
+localStorage.removeItem(user);
+alert(user+' has been deleted');
+load();
+}
+
+else alert("Please select user");
+}
+
+function editUser(){
+var user=document.getElementById('menu2').value;
+var pass=document.getElementById('newpass').value;
+if(pass.length>=8){
+
+if(localStorage.getItem(user)){
+localStorage.setItem(user,pass);
+alert(user+'s password has been changed');
+load();
+}
+
+else alert("Please select user");
+}
+
+else alert("Password is too short");
+}
+</script>
+  </head>
+  <body onload='load()'>
+
+
+  <header>
+            <div class = "navigation-container">
+                <div class = "top-head">
+                    <div class = "web-name">
+                        <h1><img src="aaa.jpeg">ELMAWQE3</h1>
+                    </div>
+
+                    <div class = "ham-btn">
+                        <span>
+                            <i class = "fas fa-bars"></i>
+                        </span>
+                    </div>
+
+                    <div class = "times-btn">
+                        <span>
+                            <i class = "fas fa-times"></i>
+                        </span>
+                    </div>
+                </div>
+
+                <!-- nav bar -->
+
+                <div class = "nav-bar" id = "nav-bar">
+                    <nav>
+                        <ul  id='nb'>
+                            <li><a href = "home.html">Home</a></li>
+                            <li><a href = "discussion.html">Discussion</a></li>
+                            <li><a href = "subscribe.html">Subscribe</a></li>
+                            <li id='ln'><a href = "login.html">Log in\Register</a></li>
+                            <li><a href = "cred.html">About</a></li>
+                        </ul>
+                    </nav>
+                </div>
+
+                <!--social icons -->
+                <div class = "social-icons">
+                    <ul>
+                        <li>
+                            <a href= "#"><i class = "fab fa-facebook"></i></a>
+                        </li>
+                        <li>
+                            <a href= "#"><i class = "fab fa-twitter"></i></a>
+                        </li>
+                        <li>
+                            <a href= "#"><i class = "fab fa-instagram"></i></a>
+                        </li>
+                        <li>
+                            <a href= "#"><i class = "fab fa-youtube"></i></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+
+
+
+    <div class="container">
+      <div class="theme">
+      <div class="option">
+        <label for="color">Change background color : </label>
+        <input type="color" name="" value="#888888" id = "bgColor">
+        <input type="button" name="" value="Change" id = "user-plate" class = "btn" onclick='bgcolorchange()'>
+      </div>
+       <div class="option">
+        <label for="color">Change text color : </label>
+        <input type="color" name="" value="#888888" id = "Color">
+        <input type="button" name="" value="Change" id = "user-plate" class = "btn" onclick='colorchange()'>
+      </div>
+      <div class="option">
+        <label for="fonts">Change website font : </label>
+        <input type="font" name="" value="" id = "Font">
+        <input type="button" name="" value="Change" id = "user-plate" class = "btn" onclick='fontchange()'>
+
+      </div>
+    </div>
+    <div class="setting">
+        <div class="option">
+          <label for="username">Delete account: </label>
+          <select class="user-choose" name="" id='menu'>
+
+          </select>
+          <input type="button" name="" value="Delete" id = "user-plate" class="btn" onclick='delUser()'>
+
+        </div>
+      <div class="option">
+        <label for="username">Change password: </label>
+        <select class="user-choose" name="" id='menu2'>
+        </select> <br> <br>
+        <label for="password">New password :</label>
+        <input type="password" name="" value="" id='newpass'>
+        <input type="button" name="" value="Change" id = "user-plate" class="btn" onclick='editUser()'>
+
+      </div>
+    </div>
+    </div>
+  </body>
+</html>

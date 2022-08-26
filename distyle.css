@@ -1,0 +1,41 @@
+@import "style2.css";
+
+input[type='text']{
+position:fixed;
+left: 370px;
+bottom: 50px;
+width:300;
+height: fit-content;
+}
+
+body{
+background-color:gray;
+}
+
+div{
+
+background-color:white;
+border-radius: 3px;
+margin-bottom:10px;
+Width:300px;
+height:fit-content;
+}
+
+input[type='button']{
+position: fixed;
+right:450px;
+bottom:5px;
+width: 120px;
+height:30px;
+border-radius:3px;
+}
+
+div.User{
+position:relative;
+left:710px;
+background-color:white;
+border-radius: 3px;
+margin-bottom:10px;
+Width:300px;
+height:fit-content;
+}

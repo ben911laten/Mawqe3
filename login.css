@@ -1,0 +1,62 @@
+
+.form {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    justify-content: center;
+    border: 2px solid rgb(12 2 2 / 27%);
+    border-radius: 4px;
+    box-shadow: 1px 3px 18px #68687f;
+    background-color: white;
+}
+
+.form h1 {
+    width: fit-content;
+    margin: auto;
+    margin-top: 20PX;
+    text-transform: lowercase;
+    border-bottom: 2px outset blue;
+}
+
+.in {
+    margin: 10px;
+
+}
+
+label {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+
+#pass,
+#tex,
+#fname {
+    border: none;
+    border-bottom: 1px solid black;
+    width: 250px;
+}
+
+button.login{
+    background-color: blue;
+    width: 120px;
+    height: 30px;
+
+    border: 1px;
+    border-color: #4f4c4938;
+    border-style: solid;
+    border-radius: 20px;
+    position: relative;
+    margin-top: 20px;
+    color: white;
+}
+
+div{
+width: 40%;
+}
+
+p {
+    text-align: center;
+}
